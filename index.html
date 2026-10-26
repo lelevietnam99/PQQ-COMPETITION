@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a56db">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="PQQ Thi">
+  <title>PQQ Thi Online — Đăng nhập</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="/pwa/manifest.webmanifest">
+  <link rel="icon" href="/assets/icons/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <img src="assets/logo-MP-remove-bg.png" alt="PQQ Logo" class="logo">
+      <h1>Hệ thống Thi Online PQQ</h1>
+    </header>
+
+    <main class="gate-container">
+      <section id="active-judge-banner" class="active-session-banner hidden">
+        <p id="active-judge-text"></p>
+        <div class="active-session-actions">
+          <button type="button" id="btn-resume-judge" class="btn btn-primary">Tiếp tục chấm thi</button>
+          <button type="button" id="btn-logout-judge" class="btn btn-secondary">Đăng xuất</button>
+        </div>
+      </section>
+
+      <section id="exam-section" class="exam-section">
+        <h2>Chọn kỳ thi</h2>
+        <p id="exam-hint" class="form-hint">Online/Offline là thuộc tính của kỳ thi do Admin chọn lúc tạo.</p>
+        <div class="exam-picker">
+          <select id="exam-select" class="hidden" aria-label="Danh sách kỳ thi">
+            <option value="">— Chọn kỳ thi —</option>
+          </select>
+          <input type="text" id="exam-id-input" placeholder="Mã kỳ thi (examId)" autocomplete="off">
+          <button type="button" id="btn-load-exam" class="btn btn-secondary">Tải kỳ thi</button>
+        </div>
+      </section>
+
+      <div id="role-login-area">
+      <h2>Chọn vai trò</h2>
+      <div class="role-grid">
+        <button class="role-card" data-role="gk">
+          <span class="role-icon">📝</span>
+          <span class="role-label">Giám khảo</span>
+        </button>
+        <button class="role-card" data-role="tk">
+          <span class="role-icon">📋</span>
+          <span class="role-label">Thư ký</span>
+        </button>
+        <button class="role-card" data-role="cck">
+          <span class="role-icon">✅</span>
+          <span class="role-label">Chánh chủ khảo</span>
+        </button>
+        <button class="role-card" data-role="scoreboard">
+          <span class="role-icon">🏆</span>
+          <span class="role-label">Bảng điểm</span>
+        </button>
+      </div>
+
+      <div id="pass-section" class="pass-section hidden">
+        <label for="pass-input" id="pass-label">Nhập mật khẩu:</label>
+        <input type="password" id="pass-input" autocomplete="off" placeholder="Mật khẩu...">
+        <button id="btn-login" class="btn btn-primary">Đăng nhập</button>
+        <p id="pass-error" class="error-msg hidden"></p>
+      </div>
+
+      <div id="judge-section" class="pass-section hidden">
+        <label for="judge-select">Chọn giám khảo:</label>
+        <select id="judge-select" aria-label="Danh sách giám khảo">
+          <option value="">— Chọn giám khảo —</option>
+        </select>
+        <button type="button" id="btn-judge-continue" class="btn btn-primary">Bắt đầu chấm thi</button>
+        <p id="judge-error" class="error-msg hidden"></p>
+      </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/api/adapter.js"></script>
+  <script src="js/auth/session.js"></script>
+  <script src="js/utils/toast.js"></script>
+  <script src="js/utils/error-handler.js"></script>
+  <script src="js/api/client.js"></script>
+  <script src="js/utils/health-banner.js"></script>
+  <script src="js/utils/pwa-register.js"></script>
+  <script src="js/auth/role-gate.js"></script>
+</body>
+</html>
